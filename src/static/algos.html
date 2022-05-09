@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8"><link rel = "stylesheet" href = "stylesheet.css">
+<title>Algorithm Visualizer</title>
+  <script type = application/javascript src = "cytoscape.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.15.1/cytoscape.min.js"></script>
+	
+<!--Error Check -->
+
+	
+</head>
+	
+<body onload = "cyto(); newGraph()">
+
+<!-- Header -->
+<div class="fixed-header">
+    <div class="container">
+        <nav>
+            <li><a href="#home" ><b>Algorithm Visualizer</b></a>
+        </nav>
+    </div>
+</div>
+
+
+<!-- Body -->
+<div style="background-image: url('../images/algoweb.jpg');">
+</div>
+
+<div class="bodytext" style=" width: 232px;">
+    <div class="title">
+        Algorithm Visualizer
+    </div>
+
+
+    <div class="submittext">
+        <form>
+            <div class="col-25">
+
+                <label for="V" style="padding-top: 1px;">Vertice</label>
+                	<br>
+                	<input type="text" id="V" name="Vertice" placeholder="Enter Vertice IDs..." maxlength="12">
+			<br>
+      			<button type = "button" class="button buttonV" onclick = addvertex()>Submit Vertice</button>
+			<br>
+		    	<br>
+      			<label for="E" style="padding-top: 1px;">Edge</label>
+			<br>
+      			<input type="text" id="W" name="Weight" placeholder="Enter Edge Weight..." min="0" max="99999">
+			<br>
+      			<input type="text" id="S" name="Source" placeholder="Enter Edge Source..." maxlength="12">
+			<br>
+      			<input type="text" id="T" name="Target" placeholder="Enter Edge Target..." maxlength="12">
+			<br>
+      			<button type = "button" class="button buttonE" onclick = addedge()>Submit Edge</button>
+		    	<br>
+		    	<label for="Algorithm" style="padding-top: 1px;">Select Algorithm</label>
+		    	<input type="text" id="startNode" name="StartNode" placeholder="Enter Starting Node..." maxlength="12">
+                	<br>
+                	<input type="text" id="endNode" name="EndNode" placeholder="Enter Ending Node..." maxlength="12">
+                	<select id="Algorithm" name="Algorithm">
+                    	<option value="BFS">Breadth First Search</option>
+                    	<option value="DFS">Depth First Search</option>
+                    	<option value="Dijkstra">Dijkstra's Algorithm</option>
+                	</select>
+                	<br>
+                	<button type = "button" onclick = "runAlgo()" class="button buttonA">Submit Algorithm</button>
+                	<br>
+		    	<p id="error" style="margin-top: 0px; margin-bottom: 0px; height: 40px; font-size: 19px; color: red;"></p>
+				<label for="Connectivity" style="padding-top: 1px; font-size:30px;">Connectivity</label>
+				<p id="Connectivity" style="margin-top: 5px; margin-bottom: 30px; height: 80px; width: 205px; font-size: 19px; color: black; background-color: white;"></p>
+		</div>
+        </form>
+    </div>
+</div>
+
+<sidegraph>
+    <div id="cy"> </div>
+	<label for="Path" style="padding-top: 62px; font-size:30px; color: white;">Pathing Result</label>
+	<p id="Path" style="margin-top: 5px; margin-bottom: 30px; height: 80px; width: 101%; font-size: 19px; color: black; background-color: white;"></p>
+</sidegraph>
+
+<div class="fixed-footer">
+    <div class="container">
+        <nav>
+            <li><b>EC504 Project</b>
+        </nav>
+    </div>
+</div>
+</body>
+</html>
